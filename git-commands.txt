@@ -1,0 +1,187 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git init
+Initialized empty Git repository in C:/Users/Naveenkumar/Desktop/GitDemoSample/.git/
+[master (root-commit) 9fa1d99] you message
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git remote add origin https://github.com/NaveenkumarKannan/GitDemoSample.git
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 230 bytes | 230.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+ * [new branch]      master -> master
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git add .
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git commit -m "Modified file"
+[master 8885766] Modified file
+ 1 file changed, 1 insertion(+)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 288 bytes | 144.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/NaveenkumarKannan/GitDemoSample.git
+   9fa1d99..8885766  master -> master
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample>  git stash pop
+On branch master
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple text file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git add .
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git commit -m "stash command"
+[master 0cb773c] stash command
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 330 bytes | 165.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/NaveenkumarKannan/GitDemoSample.git
+   8885766..0cb773c  master -> master
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git log
+commit 0cb773ceaea826ffd201c25887c9497399a9a5ba (HEAD -> master, origin/master)
+Author: NaveenkumarKannan <naveenkumar70271@gmail.com>
+Date:   Sun Feb 14 23:29:56 2021 +0530
+    stash command
+
+commit 8885766e2b102619d14f38562e30fdbeab881063
+
+    Modified file
+
+Author: NaveenkumarKannan <naveenkumar70271@gmail.com>
+Date:   Sun Feb 14 23:11:23 2021 +0530
+
+    you message
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git log --oneline
+8885766 Modified file
+9fa1d99 you message
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git add .
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git commit -m "Add new file"
+[master f7808eb] Add new file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 new file.txt
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   new file.txt
+
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git stash
+Saved working directory and index state WIP on master: f7808eb Add new file
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git log --oneline
+f7808eb (HEAD -> master) Add new file
+0cb773c (origin/master) stash command
+8885766 Modified file
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git checkout 8885766
+Note: checking out '8885766'.
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git log --oneline   
+8885766 (HEAD) Modified file
+9fa1d99 you message
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git checkout master
+Previous HEAD position was 8885766 Modified file
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git log --oneline   
+f7808eb (HEAD -> master) Add new file
+0cb773c (origin/master) stash command
+8885766 Modified file
+9fa1d99 you message
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch -b dev
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged | --no-merged]
+   or: git branch [<options>] [-l] [-f] <branch-name> [<start-point>]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track           set up tracking mode (see git-pull(1))
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      Unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display SHA-1s
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -l, --list            list branch names
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --sort <key>          field name to sort on
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --format <format>     format to use for the output
+
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch dev    
+Switched to branch 'dev'
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git status
+On branch dev
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch feature1
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch feature2
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch -list
+error: did you mean `--list` (with two dashes ?)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git branch --list
+* dev
+  feature1
+  feature2
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 315 bytes | 157.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/NaveenkumarKannan/GitDemoSample.git
+   0cb773c..f7808eb  master -> master
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+PS C:\Users\Naveenkumar\Desktop\GitDemoSample> 
